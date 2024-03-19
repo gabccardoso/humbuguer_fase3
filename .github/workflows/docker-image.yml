@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t gabccardoso/hummburguer-latest:latest .
+        run: docker build -t gabccardoso/hummburguer:latest .
         
       - name: Push Docker image to Docker Hub
-        run: docker push gabccardoso/hummburguer-latest:latest
+        run: docker push gabccardoso/hummburguer:latest
