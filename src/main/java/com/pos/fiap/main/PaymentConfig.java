@@ -9,6 +9,7 @@ import com.pos.fiap.infrastructure.controllers.dto.ProductDTOMapper;
 import com.pos.fiap.infrastructure.gateways.PaymentRepositoryGateway;
 import com.pos.fiap.infrastructure.gateways.ProductEntityMapper;
 import com.pos.fiap.infrastructure.gateways.ProductRepositoryGateway;
+import com.pos.fiap.infrastructure.persistence.OrderRepository;
 import com.pos.fiap.infrastructure.persistence.PaymentRepository;
 import com.pos.fiap.infrastructure.persistence.ProductRepository;
 import org.springframework.context.annotation.Bean;
@@ -23,8 +24,8 @@ public class PaymentConfig {
     }
 
     @Bean
-    PaymentGateway paymentGateway(PaymentRepository paymentRepository){
-        return new PaymentRepositoryGateway(paymentRepository);
+    PaymentGateway paymentGateway(PaymentRepository paymentRepository, OrderRepository orderRepository){
+        return new PaymentRepositoryGateway(paymentRepository, orderRepository);
     }
 
 }

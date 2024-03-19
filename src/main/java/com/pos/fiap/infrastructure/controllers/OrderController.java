@@ -44,6 +44,7 @@ public class OrderController {
     public ResponseEntity<Long> criarPedido(@Valid @RequestBody OrderDTO orderDTO, @RequestHeader(value = "token", required = false) String token){
         Long clientId = token != null ? gerenciadorAutenticacao.usuarioAutenticado(token) : null;
         orderDTO.setClientId(clientId);
+        orderDTO.setStatus(null);
         Long orderId = orderInteractor.createOrder(orderDTOMapper.toOrder(orderDTO));
         return ResponseEntity.ok(orderId);
     }

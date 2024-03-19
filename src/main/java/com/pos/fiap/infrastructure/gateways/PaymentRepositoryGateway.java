@@ -2,9 +2,9 @@ package com.pos.fiap.infrastructure.gateways;
 
 import com.pos.fiap.application.gateways.PaymentGateway;
 import com.pos.fiap.infrastructure.controllers.WebhookController;
+import com.pos.fiap.infrastructure.controllers.enums.Status;
 import com.pos.fiap.infrastructure.controllers.enums.StatusPayment;
-import com.pos.fiap.infrastructure.persistence.PaymentEntity;
-import com.pos.fiap.infrastructure.persistence.PaymentRepository;
+import com.pos.fiap.infrastructure.persistence.*;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpEntity;
@@ -20,11 +20,13 @@ import java.net.URI;
 public class PaymentRepositoryGateway implements PaymentGateway {
 
     private final PaymentRepository paymentRepository;
+    private final OrderRepository orderRepository;
     private final String webhookUrl = "/webhooks/pagamentos";
     private final String  webhookApiKey = "123";
 
-    public PaymentRepositoryGateway(PaymentRepository paymentRepository) {
+    public PaymentRepositoryGateway(PaymentRepository paymentRepository, OrderRepository orderRepository) {
         this.paymentRepository = paymentRepository;
+        this.orderRepository = orderRepository;
     }
 
     @Override
@@ -37,6 +39,9 @@ public class PaymentRepositoryGateway implements PaymentGateway {
     public StatusPayment createPayment(Long orderId) {
         PaymentEntity paymentEntity = new PaymentEntity(orderId);
         paymentEntity.setStatusPayment(StatusPayment.APROVADO);
+        OrderEntity orderEntity = orderRepository.findById(paymentEntity.getOrderId()).orElseThrow(EntityNotFoundException::new);
+        orderEntity.setStatus(Status.RECEBIDO);
+        orderRepository.save(orderEntity);
         paymentRepository.save(paymentEntity);
         this.enviarNotificacao(paymentEntity.getStatusPayment().name());
         return paymentEntity.getStatusPayment();
