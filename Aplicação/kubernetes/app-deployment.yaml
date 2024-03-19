@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-humburguer-deployment
+spec:
+  template:
+    metadata:
+      name: app-humburguer
+      labels:
+        app: app-humburguer
+    spec:
+      containers:
+        - name: app-container
+          image: gabccardoso/humburguer:1.0.3
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: app-configmap
+            - secretRef:
+                name: app-secret
+          resources:
+            requests:
+              cpu: 1000m
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app-humburguer
