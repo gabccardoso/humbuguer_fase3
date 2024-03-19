@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "app-configmap"
-data:
-  SPRING_DATASOURCE_URL: "jdbc:mysql://humburguer-rds-instance-one.c98aim24yuf6.us-east-1.rds.amazonaws.com:3306/humburguer"
-  SPRING_DATASOURCE_DRIVER_CLASS_NAME: "com.mysql.jdbc.Driver"
-  SPRING_JPA_HIBERNATE_DDL_AUTO: "update"
-  SPRING_DATASOURCE_INITIALIZATION_MODE: "always"
