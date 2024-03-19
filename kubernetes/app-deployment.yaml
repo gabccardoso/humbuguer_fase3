@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: app-container
-          image: gabccardoso/humburguer:1.0.3
+          image: gabccardoso/humburguer:latest
           ports:
             - containerPort: 8080
           envFrom:

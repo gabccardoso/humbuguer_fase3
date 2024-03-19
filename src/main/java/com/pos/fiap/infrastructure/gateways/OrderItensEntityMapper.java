@@ -7,10 +7,10 @@ import com.pos.fiap.infrastructure.persistence.OrderItensEntity;
 
 public class OrderItensEntityMapper {
     OrderItensEntity toEntity(OrderItens orderObjDomain){
-        return new OrderItensEntity(orderObjDomain.order(), orderObjDomain.product(), orderObjDomain.quantity());
+        return new OrderItensEntity(orderObjDomain.product(), orderObjDomain.quantity());
     }
 
     OrderItens toDomainObject(OrderItensEntity orderItensEntity){
-        return new OrderItens(orderItensEntity.getOrder(), orderItensEntity.getProduct(), orderItensEntity.getQuantity());
+        return new OrderItens(orderItensEntity.getProductId(), orderItensEntity.getQuantity());
     }
 }

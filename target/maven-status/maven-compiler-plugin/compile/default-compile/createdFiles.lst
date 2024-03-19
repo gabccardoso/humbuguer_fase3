@@ -5,6 +5,7 @@ com/pos/fiap/application/gateways/ProductGateway.class
 com/pos/fiap/infrastructure/gateways/OrderRepositoryGateway.class
 com/pos/fiap/infrastructure/controllers/dto/ProductDTO.class
 com/pos/fiap/infrastructure/persistence/PaymentRepository.class
+com/pos/fiap/infrastructure/controllers/dto/OrderItensDTO.class
 com/pos/fiap/infrastructure/gateways/ProductRepositoryGateway.class
 com/pos/fiap/infrastructure/controllers/PaymentController.class
 com/pos/fiap/main/PaymentConfig.class

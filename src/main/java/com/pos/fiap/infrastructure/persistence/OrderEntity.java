@@ -1,6 +1,5 @@
 package com.pos.fiap.infrastructure.persistence;
 
-import com.pos.fiap.domain.entities.OrderItens;
 import com.pos.fiap.infrastructure.controllers.enums.Status;
 import jakarta.persistence.*;
 import java.util.Date;
@@ -26,9 +25,10 @@ public class OrderEntity {
     public OrderEntity() {
     }
 
-    public OrderEntity(Long clientId, Status status) {
+    public OrderEntity(Long clientId, Status status, List<OrderItensEntity> itens) {
         this.clientId = clientId;
         this.status = status;
+        this.itens = itens;
     }
 
     public Long getId() {

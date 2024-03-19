@@ -41,8 +41,7 @@ public class OrderRepositoryGateway implements OrderGateway {
             int quantity = entry.getValue();
 
             OrderItensEntity orderItensEntity = new OrderItensEntity();
-            orderItensEntity.setOrder(orderEntity);
-            orderItensEntity.setProduct(productEntity);
+            orderItensEntity.setProductId(productEntity.getId());
             orderItensEntity.setQuantity(quantity);
 
             orderEntity.getItens().add(orderItensEntity);

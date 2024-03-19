@@ -43,6 +43,7 @@
 /home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/gateways/ClientRepositoryGateway.java
 /home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/controllers/dto/ClientDTO.java
 /home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/controllers/dto/OrderDTO.java
+/home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/controllers/dto/OrderItensDTO.java
 /home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/controllers/enums/Status.java
 /home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/persistence/OrderItensEntity.java
 /home/gabriela/Documents/FIAP/Fase3_git/humbuguer_fase3/src/main/java/com/pos/fiap/infrastructure/controllers/enums/Category.java

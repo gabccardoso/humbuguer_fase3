@@ -8,22 +8,16 @@ public class OrderItensEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private OrderEntity order;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private ProductEntity product;
+    @Column(name = "product_id")
+    private Long productId;
     private int quantity;
 
-    public OrderItensEntity(OrderEntity order, ProductEntity product, int quantity) {
-        this.order = order;
-        this.product = product;
-        this.quantity = quantity;
+    public OrderItensEntity() {
     }
 
-    public OrderItensEntity() {
+    public OrderItensEntity(Long productId, int quantity) {
+        this.productId = productId;
+        this.quantity = quantity;
     }
 
     public Long getId() {
@@ -34,21 +28,7 @@ public class OrderItensEntity {
         this.id = id;
     }
 
-    public OrderEntity getOrder() {
-        return order;
-    }
 
-    public void setOrder(OrderEntity order) {
-        this.order = order;
-    }
-
-    public ProductEntity getProduct() {
-        return product;
-    }
-
-    public void setProduct(ProductEntity product) {
-        this.product = product;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -56,5 +36,13 @@ public class OrderItensEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 }
